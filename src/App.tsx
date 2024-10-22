@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Events from "./pages/Events";
+import EventDetail from "./pages/EventDetail";
+import { useEffect } from "react";
+import { getSocket, initiateSocketConnection } from "./utils/websocket";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    let socket = getSocket();
+    if (!socket) {
+      socket = initiateSocketConnection();
+    }
+    return () => {
+      if (socket) {
+        socket.close();
+      }
+    };
+  }, []);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main className="px-20">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<></>} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/portfolio" element={<></>} />
+        </Routes>
+      </Router>
+    </main>
+  );
 }
 
-export default App
+export default App;
