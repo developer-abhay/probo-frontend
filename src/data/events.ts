@@ -1,17 +1,21 @@
-interface Event {
+export interface EVENT_TYPE {
   id: string;
   name: string;
   imageUrl: string;
   currentPrice: { yes: string; no: string };
+  activeTraders: number;
+  info: string;
 }
 
-export const events: Event[] = [
+export const events: EVENT_TYPE[] = [
   {
     id: "1",
     name: "New Zealand to win the 1st Test vs India?",
     imageUrl:
       "https://probo.in/_next/image?url=https%3A%2F%2Fprobo.gumlet.io%2Fimage%2Fupload%2Fprobo_product_images%2FIMAGE_1e85b0eb-0cd9-4960-ad98-a7a2c634975d.png&w=96&q=75",
     currentPrice: { yes: "7", no: "3" },
+    activeTraders: 500,
+    info: "Form (Last 5 Games): U.P. - W W L L L | Bengal - L L L W W",
   },
   {
     id: "2",
@@ -19,6 +23,8 @@ export const events: Event[] = [
     imageUrl:
       "https://probo.in/_next/image?url=https%3A%2F%2Fprobo.gumlet.io%2Fimage%2Fupload%2Fprobo_product_images%2FIMAGE_207fe0ff-6e8a-474a-a762-08ebbf2e36b8.png&w=96&q=75",
     currentPrice: { yes: "5", no: "5" },
+    activeTraders: 500,
+    info: "Bitcoin is a decentralized digital currency that can be transferred on the peer-to-peer bitcoin network.",
   },
   {
     id: "3",
@@ -26,6 +32,8 @@ export const events: Event[] = [
     imageUrl:
       "https://probo.in/_next/image?url=https%3A%2F%2Fprobo.gumlet.io%2Fimage%2Fupload%2Fprobo_product_images%2FIMAGE_4a24f956-01f5-48e0-ae58-e807f4aef5a1.png&w=96&q=75",
     currentPrice: { yes: "3", no: "7" },
+    activeTraders: 500,
+    info: "Form (Last 5 Games): Jaipur - W W L W W | Haryana - L L W W L",
   },
   {
     id: "4",
@@ -33,6 +41,8 @@ export const events: Event[] = [
     imageUrl:
       "https://probo.in/_next/image?url=https%3A%2F%2Fprobo.gumlet.io%2Fimage%2Fupload%2Fprobo_product_images%2FIMAGE_7226dd5f-2793-4a0b-bc30-c5b00b2cc07d.png&w=96&q=75",
     currentPrice: { yes: "9.5", no: "0.5" },
+    activeTraders: 500,
+    info: "Open price at expiry time as displayed on the source of truth will be considered.",
   },
   {
     id: "5",
@@ -40,5 +50,7 @@ export const events: Event[] = [
     imageUrl:
       "https://probo.in/_next/image?url=https%3A%2F%2Fprobo.gumlet.io%2Fimage%2Fupload%2Fprobo_product_images%2FIMAGE_0e5ab7d2-70d3-497d-bf0b-76455ab14364.png&w=96&q=75",
     currentPrice: { yes: "7", no: "3" },
+    activeTraders: 500,
+    info: "Etna Bada Bomb Le Liya 😳 Kunali Ne video premiered on October 24.",
   },
 ];

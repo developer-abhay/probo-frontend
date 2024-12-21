@@ -1,9 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Events from "./pages/Events";
-import EventDetail from "./pages/EventDetail";
 import { useEffect } from "react";
 import { getSocket, initiateSocketConnection } from "./utils/websocket";
+import AppRouter from "./router";
 
 function App() {
   useEffect(() => {
@@ -18,16 +15,8 @@ function App() {
     };
   }, []);
   return (
-    <main className="px-20">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<></>} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:id" element={<EventDetail />} />
-          <Route path="/portfolio" element={<></>} />
-        </Routes>
-      </Router>
+    <main className="px-10 md:px-20 lg:px-12 pt-16">
+      <AppRouter />
     </main>
   );
 }

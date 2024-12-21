@@ -5,6 +5,7 @@ interface ButtonProps {
   className?: string;
   color?: string;
   bgColor?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -13,15 +14,17 @@ const Button: React.FC<ButtonProps> = ({
   className,
   color = "white",
   bgColor,
+  disabled,
   onClick,
 }) => {
   return (
     <button
       style={{
-        color: color,
-        backgroundColor: bgColor,
+        color: disabled ? "#fff" : color,
+        backgroundColor: disabled ? "#ABABAB" : bgColor,
       }}
-      className={`px-8 rounded-[4px] h-10 text-sm font-semibold ${className}`}
+      disabled={disabled}
+      className={`px-8 py-2 rounded-[4px] text-sm font-semibold ${className}`}
       onClick={onClick}
     >
       {children}

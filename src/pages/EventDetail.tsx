@@ -4,9 +4,11 @@ import { events } from "../data/events";
 const EventDetail = () => {
   const { id } = useParams<{ id: string }>();
 
-  const event = events.find((event) => event.id === id);
+  console.log(id);
 
-  return <div></div>;
+  // const event = events.find((event) => event.id === id);
+
+  return <div>Hello</div>;
 };
 
 export default EventDetail;
